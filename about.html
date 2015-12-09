@@ -46,5 +46,25 @@
 
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+	//jquery
+	
+	$(document).ready(function () {
+    
+     $("#bios a").click(function (e) {
+        e.preventDefault();
+        
+        var link_url = $(this).attr("href");
+        $("#bio").load(link_url + "#content");
+		 $("#bio").hide();
+		 $("#bio").fadeIn(500);
+        
+    });
+
+}); //ready
+	
+</script>
+
 </body>
 </html>

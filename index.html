@@ -3,6 +3,8 @@
 <head>
 	<title>RadicalPhoto</title>
 	<link href='http://fonts.googleapis.com/css?family=Gruppo' rel='stylesheet'>
+	<link  href="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+	
 	<link type="text/css" rel="stylesheet" href="css/radicalphoto.css">
 </head>
 <body>
@@ -25,7 +27,13 @@
 	<h2>Page heading</h2>
 
 	<div id="slider">
-	    <img src="images/slider_alligator.jpg" title="Chomp">
+    	<div class="fotorama" data-loop="true" data-autoplay="true">
+    		<img src="images/slider_alligator.jpg" alt="alligator">
+    		<img src="images/slider_cow.jpg" alt="cow">
+    		<img src="images/slider_ladybug.jpg" alt="ladybug">
+    		<img src="images/slider_turtle.jpg" alt="turtle">
+    	</div>
+	    
 		<p>Award Winning Photography</p>
 	</div>
 
@@ -55,6 +63,9 @@
 	</div>
 
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
 
 </body>
 </html>

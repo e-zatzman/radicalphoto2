@@ -30,10 +30,10 @@
 
 		<p class="errors">All fields are required.</p>
 
-		<p><label>Name: <input type="text" size="25" name="name" id="username"></label></p>
-		<p><label>Email: <input type="text" size="25" name="email" id="email"></label></p>
-		<p><label>Message:<br> <textarea cols="50" rows="5" name="message" id="my_message"></textarea></label></p>
-		<p><input type="submit" value="Contact Us"></p>
+		<p><label>Name: <input type="text" size="25" name="name" id="username"></label><span id="name-req"></span></p>
+		<p><label>Email: <input type="text" size="25" name="email" id="email"></label><span id="email-req"></span></p>
+		<p><label>Message:<br> <textarea cols="50" rows="5" name="message" id="my_message"></textarea></label><span id="message-req"></span></p>
+		<p><input type="submit" id="submit" value="Contact Us"></p><span id="form_warning"></span>
 	</form>
 
 	</div>
@@ -43,6 +43,73 @@
 	</div>
 
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script>
+    //variables
+    var username_field = $("#username");
+    var email_field = $("#email");
+    var message_field = $("#my_message");
+    var submit_btn = $("#submit");
+    var the_form = $("#myform");
+    var required_name = $("#name-req");
+    var required_email = $("#email-req");
+    var required_message = $("#message-req");
+    var warning = $("#form_warning");
+    
+    //functions
+	the_form.submit(function() {
+		warning.text("All fields must be filled in to submit this form. Please review required fields.");
+		warning.css({
+			'color': 'red'
+		});
+		var form_errors = 0;
+        var users_user = username_field.val();
+        var users_email = email_field.val();
+        var users_message = message_field.val();
+		
+		//name
+		if (users_user == "") {
+            required_name.text(" *This field is required.");
+            required_name.css({
+			'color': 'red'
+			});
+            form_errors++;
+        } else {
+            required_name.text("");
+        }
+		
+		//email
+		if (users_email == "") {
+            required_email.text(" *This field is required.");
+            required_email.css({
+			'color': 'red'
+			});
+            form_errors++;
+        } else {
+            required_email.text("");
+        }
+		//message
+		if (users_message == "") {
+            required_message.text(" *This field is required.");
+            required_message.css({
+			'color': 'red'
+			});
+            form_errors++;
+        } else {
+            required_message.text("");
+        }
+		
+		if (form_errors > 0) {
+            return false;
+            
+        }
+	
+	
+	});
+        
+    
+    
+</script>
 
 </body>
 </html>
